@@ -27,7 +27,10 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	if (!(res = (char *)malloc((plen + slen + 1) * sizeof(char))))
 		return (NULL);
 	while (s1[i] != '\0' && plen--)
-		res[i] = s1[i++];
+	{
+		res[i] = s1[i];
+		i++;
+	}
 	while (s2[j] != '\0' && slen--)
 		res[i++] = s2[j++];
 	res[i] = '\0';

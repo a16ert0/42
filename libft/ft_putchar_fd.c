@@ -1,27 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hetha <hetha@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/14 15:18:57 by hetha             #+#    #+#             */
-/*   Updated: 2020/05/14 19:14:56 by hetha            ###   ########.fr       */
+/*   Created: 2020/05/22 00:46:47 by hetha             #+#    #+#             */
+/*   Updated: 2020/05/22 01:04:23 by hetha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *str, int ch)
+void	ft_putchar_fd(char c, int fd)
 {
-	char	*s;
-
-	s = (char *)str;
-	while (*s != (char)ch)
-	{
-		if (*s == '\0')
-			return (NULL);
-		s++;
-	}
-	return (s);
+	write(fd, &c, 1);
 }

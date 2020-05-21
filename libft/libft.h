@@ -6,7 +6,7 @@
 /*   By: hetha <hetha@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/01 18:10:35 by hetha             #+#    #+#             */
-/*   Updated: 2020/05/20 00:53:54 by hetha            ###   ########.fr       */
+/*   Updated: 2020/05/22 01:35:24 by hetha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,11 @@ char				*ft_strdup(const char *str);
 char				*ft_substr(char const *s, unsigned int start, size_t len);
 char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strtrim(char const *s1, char const *set);
+char				**ft_split(char const *s, char c);
+char				*ft_itoa(int n);
+char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+void				ft_putchar_fd(char c, int fd);
+void				ft_putstr_fd(char *s, int fd);
+void				ft_putendl_fd(char *s, int fd);
 
 #endif
