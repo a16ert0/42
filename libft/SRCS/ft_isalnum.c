@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hetha <hetha@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/07 20:25:03 by hetha             #+#    #+#             */
-/*   Updated: 2020/05/12 21:59:59 by hetha            ###   ########.fr       */
+/*   Created: 2020/05/15 23:25:18 by hetha             #+#    #+#             */
+/*   Updated: 2020/05/15 23:28:19 by hetha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*memcpy(void *dest, const void *src, size_t n)
+int	ft_isalnum(int ch)
 {
-	unsigned char *ptr;
-	unsigned char *gtr;
-
-	ptr = (unsigned char *)dest;
-	gtr = (unsigned char *)src;
-	while (n-- > 0)
-		*ptr++ = *gtr++;
-	return (dest);
+	if ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z') \
+		|| (ch >= '0' && ch <= '9'))
+		return (1);
+	else
+		return (0);
 }

@@ -1,21 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hetha <hetha@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/15 23:20:47 by hetha             #+#    #+#             */
-/*   Updated: 2020/05/15 23:23:48 by hetha            ###   ########.fr       */
+/*   Created: 2020/05/08 01:25:47 by hetha             #+#    #+#             */
+/*   Updated: 2020/05/12 21:58:57 by hetha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isdigit(int ch)
+void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 {
-	if (ch >= '1' && ch <= '9')
-		return (1);
-	else
-		return (0);
+	size_t			i;
+	unsigned char	*array1;
+	unsigned char	*array2;
+
+	i = 0;
+	if (n == 0 || n + 1 <= 0 || n + 1 < n)
+		return (NULL);
+	array1 = (unsigned char *)dest;
+	array2 = (unsigned char *)src;
+	while (i < n)
+	{
+		array1[i] = (unsigned char)array2[i];
+		if (array1[i] == (unsigned char)c)
+			return ((void *)dest + i + 1);
+		i++;
+	}
+	return (NULL);
 }

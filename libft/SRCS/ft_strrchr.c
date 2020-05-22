@@ -1,21 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hetha <hetha@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/15 23:46:55 by hetha             #+#    #+#             */
-/*   Updated: 2020/05/15 23:50:27 by hetha            ###   ########.fr       */
+/*   Created: 2020/05/14 19:18:48 by hetha             #+#    #+#             */
+/*   Updated: 2020/05/14 19:55:47 by hetha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isprint(int ch)
+char	*ft_strrchr(const char *str, int ch)
 {
-	if (ch >= 20 && ch <= 126)
-		return (1);
-	else
-		return (0);
+	if (ft_strchr(str, ch) == NULL)
+		return (NULL);
+	while (*str)
+		str++;
+	while (*str != ch)
+		str--;
+	return ((char*)str);
 }

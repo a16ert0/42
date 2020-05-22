@@ -12,35 +12,46 @@
 
 #include "libft.h"
 
-int		is_space(char c)
+static int			is_space(char a)
 {
-	if (c == ' ' || c == '\t' || c == '\n' ||
-		c == '\v' || c == '\f' || c == '\r')
+	if (a == '\v' || a == '\n' || a == '\t' || a == '\a'
+		|| a == '\b' || a == '\f' || a == '\r' || a == ' ')
 		return (1);
 	return (0);
 }
 
-ssize_t	ft_atoi(const char *str)
+static ssize_t		leak_check(size_t count,
+	long long int sign, long long int answer)
 {
-	long long int	sign;
-	long long int	nbr;
-	ssize_t			i;
+	if (count >= 19)
+		return (sign == -1 ? 0 : -1);
+	return (sign * answer);
+}
+
+ssize_t				ft_atoi(const char *str)
+{
+	long long int		answer;
+	long long int		sign;
+	size_t				i;
+	size_t				count;
 
 	i = 0;
 	sign = 1;
-	nbr = 0;
-	if (str[i] == '\0')
-		return (0);
+	answer = 0;
+	count = 0;
 	while (is_space(str[i]) == 1)
-		i++;
-	if (str[i] == '+')
 		i++;
 	if (str[i] == '-')
 	{
 		sign = -1;
 		i++;
 	}
-	while (str[i] != '\0' && str[i] >= '0' && str[i] <= '9')
-		nbr = (nbr * 10) + (str[i++] - '0');
-	return (nbr * sign);
+	else if (str[i] == '+')
+		i++;
+	while (str[i] != '\0' && (str[i] >= '0' && str[i] <= '9'))
+	{
+		answer = (answer * 10) + (str[i++] - '0');
+		count++;
+	}
+	return (leak_check(count, sign, answer));
 }

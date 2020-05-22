@@ -70,7 +70,7 @@ static char		**ft_logic(const char *s, char c, char **t, size_t index)
 	return (t);
 }
 
-char			**ft_strsplit(char const *s, char c)
+char			**ft_split(char const *s, char c)
 {
 	char	**t;
 	size_t	index;
